@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 加载properties配置文件 -->
+	<properties resource="db.properties"></properties>
+
+	<!-- <settings>
+		开启驼峰命名转换： table(create_time) -> Entity(createTime)
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings> -->
+
+<!-- 	<typeAliases>
+		对实体类起一个别名，方便写，不用写全名
+		<typeAlias type="com.iotek.bean.Goods" alias="Goods"/>
+		<typeAlias type="com.iotek.bean.GoodsType" alias="GoodsType"/>
+		
+		alias = class name
+		<package name="com.iotek.bean"/>
+	</typeAliases> -->
+	
+	<!-- <environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${mysql.driver}" />
+				<property name="url" value="${mysql.url}" />
+				<property name="username" value="${mysql.username}" />
+				<property name="password" value="${mysql.password}" />
+			</dataSource>
+		</environment>
+	</environments> -->
+	
+<!-- 	<mappers>
+		加载dao对应的mapper配置文件
+		<mapper resource="com/iotek/dao/mapper/goodsMapper.xml"/>
+		<mapper resource="com/iotek/dao/mapper/goodsTypeMapper.xml"/>
+		
+		必须dao接口和xml在同一个包下面，并且命名要一致
+		namespace命名同接口（全名）
+		如果要引用另外一起xml里面的语句，必须加namespace
+		
+		<mapper class="com.iotek.dao.GoodsDao"/>
+		
+		<package name="com.iotek.dao"/>
+	</mappers> -->
+	
+</configuration>
