@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotek.dao.GoodsDao">
+	<sql id="goods_column">
+		select goods_id, goods_name, goods_desc, goods_type, price, img_path, stock
+	</sql>
+	<select id="queryAllGoods" resultMap="allGoods">
+		<include refid="goods_column"></include> from t_goods
+	</select>
+	<resultMap type="Goods" id="allGoods">
+		<id property="goodsId" column="goods_id"/>
+		<result property="goodsName" column="goods_name"/>
+		<result property="goodsDesc" column="goods_desc"/>
+		<result property="price" column="price"/>
+		<result property="imgPath" column="img_path"/>
+		<result property="stock" column="stock"/>
+		<association property="goodsType" column="goods_type" javaType="GoodsType" select="com.iotek.dao.GoodsTypeDao.queryById"></association>
+	</resultMap>
+	
+	<select id="queryGoodsById" parameterType="int" resultType="Goods">
+		<include refid="goods_column"/>  from t_goods where goods_id = #{goodsId}
+	</select>
+	
+	<!-- arg1, arg0, param1, param2 -->
+	<!-- 
+	如果是使用dao接口注入动态生成对象的方式来访问	
+	goodsDao = session.getMapper(GoodsDao.class);
+	xml里面的select可以不用定义参数类型，在sql语句里面直接使用arg0（param1），arg1(param2) … 来表示参数，顺序同dao方法里面的参数顺序一样
+	 -->
+	<select id="queryGoodsByNameAndPrice" resultType="Goods">
+		<include refid="goods_column"/>  from t_goods where  price=#{param2} and goods_name = #{param1} 
+	</select>
+	
+</mapper>

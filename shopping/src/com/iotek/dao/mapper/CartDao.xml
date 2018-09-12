@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotek.dao.CartDao">
+	<sql id="carts_column">
+		select cart_id, user_id, goods_id, qty
+	</sql>
+	
+	<resultMap type="Cart" id="cartMap">
+		<id property="cartId" column="cart_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="qty" column="qty"/>
+		<association property="goods" javaType="Goods" column="goods_id" select="com.iotek.dao.GoodsDao.queryGoodsById"></association>
+	</resultMap>
+	
+	<select id="queryAll" parameterType="int" resultMap="cartMap">
+		<include refid="carts_column"></include> from t_cart where user_id=#{id}
+	</select>
+	
+	<select id="queryById" parameterType="int" resultMap="cartMap">
+		<include refid="carts_column"/>  from t_cart where cart_id = #{cid}
+	</select>
+	
+	<insert id="addCart" parameterType="Cart">
+		insert into t_cart(user_id, goods_id, qty) values(#{userId},#{goods.goodsId},#{qty}) 
+	</insert>
+	
+	<update id="updateCart" parameterType="Cart">
+		update t_cart set user_id=#{userId},goods_id=#{goods.goodsId},qty=#{qty} where cart_id=#{cartId}
+	</update>
+	
+</mapper>
