@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book.dao.BookDao">
+    <sql id="book_column">
+    select bid,bname ,price
+    </sql>
+	<select id="queryAllBook" resultMap="bookMap">
+	<include refid="book_column"></include> from book
+	</select>
+	<resultMap type="Book" id="bookMap">
+	<id property="bid" column="bid"/>
+	<result property="bname" column="bname"/>
+	<result property="price" column="price"/>
+	</resultMap>
+	
+</mapper>
