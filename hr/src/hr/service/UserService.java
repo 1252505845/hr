@@ -4,6 +4,7 @@ import hr.bean.User;
 
 public interface UserService {
 	public User queryUser(String phone,String psw);
-	
+	public Integer queryUserByPhone(String phone);
 	public boolean registUser(User user);
+	
 }

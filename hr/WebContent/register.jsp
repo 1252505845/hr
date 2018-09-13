@@ -71,12 +71,57 @@ display:none;
   height:50px;
   font-size:1.5em;
   }
+  .check{
+   background-color:#EA5800;
+      color:white;
+  }
+   .msg{
+  text-align: center;
+ color:red;
+ font-size: 1.2em;
+  }
 </style>
 
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-
-
+  $(function () {
+	$("#phone").blur(function () {
+		$("#phoneTip").hide();
+		$("#phone").css("border","none");
+		var phone=$(this).val();
+		if(phone.trim()==""){
+			$("#phoneTip").text("账号不能为空");
+			$("#phoneTip").show();
+			return;
+		}
+		  var reg=/^1[3|5|7|8]\d{9}$/;
+		 if(!reg.test(phone)){
+			 $("#phone").css("border","none");
+			 $("#phoneTip").text("请输入正确的手机号");
+			 $("#phoneTip").show();
+			 $("#phone").css("border-color","red");
+			 return;
+		 }
+		 $.ajax({
+			url:"checkPhone",
+			 type:"post",
+			 data:{
+				 phone:$(this).val()
+			 },
+			 dataType:"text",
+			 success:function(data){
+				 if(data!=""){
+			  $("#phone").css("border","none");
+				$("#phoneTip").text("账号已存在");
+				 $("#phoneTip").show();
+				 $("#phone").css("border-color","red");
+				 }
+			 }
+			 
+		 });
+		
+	});
+});
 
 function check(){
 		var reg=document.getElementById("reg");
@@ -93,19 +138,7 @@ function check(){
 			reg.style="color:#888888";
 			}
 		}
-function checkPhone(){
-  var phone= document.getElementById("phone");
-  var phoneTip= document.getElementById("phoneTip");
-  var reg=/^1[3|5|7|8]\d{9}$/;
-  var res=reg.test(phone.value);
-  phone.style="";
-  phoneTip.style.display="none";
-  if(phone.value==""||res==false){
-  phoneTip.style.display="block";
-  phone.style="border-color:red";
-  }
-  
-}
+
 		
  function checkPsw(){
  var psw =document.getElementById("psw");
@@ -139,12 +172,13 @@ function checkPhone(){
 <body>
 
 <form action="regist" method="post">
+
 <div class="big">
 <div class="a1">用户注册</div>
 <div class="b">
 	<div class="b1">账号:</div>
-	<div class="b2"><input type="text" id="phone" onblur="checkPhone()" name="phone" placeholder="请输入手机号"/></div>
-	<div class="b3" id="phoneTip">请输入正确的手机号</div>
+	<div class="b2"><input type="text" id="phone"  name="phone" placeholder="请输入手机号"/></div>
+	<div class="b3" id="phoneTip"></div>
 </div>
 <div class="b">
 	<div class="b1">密码:</div>
@@ -153,10 +187,12 @@ function checkPhone(){
 </div>
 <div class="b">
 	<div class="b1">确认密码:</div>
-	<div class="b2"><input type="password" id="repeatPsw" onblur="checkRPsw()" placeholder="重复密码"/></div>
+	<div class="b2"><input type="password" id="repeatPsw" name="repeatPsw" onblur="checkRPsw()" placeholder="重复密码"/></div>
 	<div class="b3" id="RPswTip">两次密码不相等</div>
 </div>
-
+<div class="msg"><c:if test="${not empty msg}">
+   <c:out value="${msg}"/>
+</c:if></div>
 <div class="c"><input type="checkbox" id="gh" onclick="check()"/>我已阅读并同意相关服务条款和服务政策</div>
 <div class="d"><input type="submit" value="立即注册" id="reg"  disabled="disabled"></div>
 </div>

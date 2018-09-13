@@ -6,13 +6,64 @@ public class User {
    private String psw;
    private  String name;//简历上填写的真实姓名
    private String sex;
-   private String education;//教育背景
+   private String education;//学历
    private String mail;//邮箱
    private String job;//应聘职位
    private String politicsStatus;//政治面貌
    private String workExperience;//工作经验
    private String salaryExpectation;//期望薪资
    private String interest;//兴趣爱好
+   private String  school;//毕业院校
+   private int age;
+  private String national;//民族
+  private String  nativePlace;//籍贯
+  private String major;//专业
+public String getNational() {
+	return national;
+}
+public void setNational(String national) {
+	this.national = national;
+}
+public String getNativePlace() {
+	return nativePlace;
+}
+public void setNativePlace(String nativePlace) {
+	this.nativePlace = nativePlace;
+}
+public User(int uid, String phone, String psw, String name, String sex, String education, String mail, String job,
+		String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+		int age) {
+	super();
+	this.uid = uid;
+	this.phone = phone;
+	this.psw = psw;
+	this.name = name;
+	this.sex = sex;
+	this.education = education;
+	this.mail = mail;
+	this.job = job;
+	this.politicsStatus = politicsStatus;
+	this.workExperience = workExperience;
+	this.salaryExpectation = salaryExpectation;
+	this.interest = interest;
+	this.school = school;
+	this.age = age;
+}
+public int getAge() {
+	return age;
+}
+public void setAge(int age) {
+	this.age = age;
+}
+public String getSchool() {
+	return school;
+}
+public void setSchool(String school) {
+	this.school = school;
+}
+public void setSalaryExpectation(String salaryExpectation) {
+	this.salaryExpectation = salaryExpectation;
+}
 public int getUid() {
 	return uid;
 }
@@ -85,22 +136,8 @@ public String getInterest() {
 public void setInterest(String interest) {
 	this.interest = interest;
 }
-public User(int uid, String phone, String psw, String name, String sex, String education, String mail, String job,
-		String politicsStatus, String workExperience, String salaryExpectation, String interest) {
-	super();
-	this.uid = uid;
-	this.phone = phone;
-	this.psw = psw;
-	this.name = name;
-	this.sex = sex;
-	this.education = education;
-	this.mail = mail;
-	this.job = job;
-	this.politicsStatus = politicsStatus;
-	this.workExperience = workExperience;
-	this.salaryExpectation = salaryExpectation;
-	this.interest = interest;
-}
+
+
 public User() {
 	super();
 	// TODO Auto-generated constructor stub

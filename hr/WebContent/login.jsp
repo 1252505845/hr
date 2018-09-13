@@ -141,7 +141,7 @@ $(function(){
 
 <div class="c"><input type="button" id="loginBtn" value="登陆" ></div>
 
-<div class="d">还没有帐号？<a href="register.jsp">免费注册</a></div>
+<div class="d">还没有帐号？<a href="reg">免费注册</a></div>
 </div>
 </form>
 

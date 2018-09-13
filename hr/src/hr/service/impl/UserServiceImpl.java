@@ -31,4 +31,11 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
+	@Override
+	public Integer queryUserByPhone(String phone) {
+		// TODO Auto-generated method stub
+		return userDao.queryUserByPhone(phone);
+	
+	}
+
 }
