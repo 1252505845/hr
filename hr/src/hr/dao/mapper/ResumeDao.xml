@@ -2,10 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="hr.dao.ResumeDao">
 
+<select id="queryResume" resultType="Resume">
+
+  select * from resume where uid =#{arg0}
+</select>
+
+<select id="queryAllResume" resultType="Resume">
+
+select * from resume
+</select>
 <insert id="addResume" parameterType="Resume" >
 
-    insert into resume (name,sex,age,national,school,education,major,native_place,phone,mail,job,last_work,salary_expectation,interest,politics_status)
-    values (#{name},#{sex},#{age},#{national},#{school},#{education},#{major},#{nativePlace},#{phone},#{mail},#{job},#{lastWork},#{salaryExpectation},#{interest},#{politicsStatus})
+    insert into resume (name,sex,uid,age,national,school,education,major,native_place,phone,mail,dept_id,pid,last_work,salary_expectation,interest,politics_status)
+    values (#{name},#{sex},#{uid},#{age},#{national},#{school},#{education},#{major},#{nativePlace},#{phone},#{mail},#{deptId},#{pid},#{lastWork},#{salaryExpectation},#{interest},#{politicsStatus})
 </insert>
  
  	

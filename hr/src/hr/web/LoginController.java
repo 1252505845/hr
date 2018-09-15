@@ -29,14 +29,17 @@ public class LoginController  {
 	public String index() {
 		return "login";
 	}
-	@RequestMapping("/index")
-	public String pl() {
-		return"index";
-	}
+	
 	@RequestMapping("/reg")
 	public String regist() {
 		return "register";
 	}
+	@RequestMapping("/user")
+	public String usermian() {
+		return "usermain";
+	}
+	
+	
 	@RequestMapping("/login")
 	public String login(String phone,String psw,Model model,HttpSession session) {
 		if(phone!=null&&psw!=null) {
@@ -44,7 +47,7 @@ public class LoginController  {
 			if(user!=null) {
 				session.setAttribute("user", user);	
 				//游客登陆
-				return "main";
+				return "usermain";
 			}
 			Admin admin=adminService.queryAdmin(phone, psw);
 			if(admin!=null) {
@@ -56,12 +59,13 @@ public class LoginController  {
 			//员工登陆
 			if(emp!=null) {
 				session.setAttribute("emp", emp);
-				return"admin";
+				return"emp";
 			}
 			
 			model.addAttribute("message", "输入账号或密码不正确");
 			return "login";        
 		}
+		//账号或密码为空
 		return "login";		
 	}
 	
