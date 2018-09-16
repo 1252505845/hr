@@ -10,8 +10,12 @@ public class Recruit {
 	
 	
       private int recId;//招聘信息ID
+      private int adminId;//发布招聘信息的管理员ID
       private String company;//招聘单位
       private  String pay;//待遇，用下拉框显示薪资区间
+      private String addr;
+      private String workExperience;//工作经验
+	   private String education;//学历
       private String content;//招聘信息内容
       private int deptId;
       private int pid;
@@ -22,20 +26,50 @@ public class Recruit {
       
       
       
-      public Recruit() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Recruit(int recId, String company, String pay, String content, int deptId, int pid, Date createTime) {
+      public Recruit(int recId, int adminId, String company, String pay, String addr, String workExperience,
+			String education, String content, int deptId, int pid, Date createTime) {
 		super();
 		this.recId = recId;
+		this.adminId = adminId;
 		this.company = company;
 		this.pay = pay;
+		this.addr = addr;
+		this.workExperience = workExperience;
+		this.education = education;
 		this.content = content;
 		this.deptId = deptId;
 		this.pid = pid;
 		this.createTime = createTime;
 	}
+	public int getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getWorkExperience() {
+		return workExperience;
+	}
+	public void setWorkExperience(String workExperience) {
+		this.workExperience = workExperience;
+	}
+	public String getEducation() {
+		return education;
+	}
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	public Recruit() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getRecId() {
 		return recId;
 	}

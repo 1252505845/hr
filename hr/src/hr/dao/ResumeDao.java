@@ -21,4 +21,8 @@ public interface ResumeDao {
 	 */
 	public List<Resume> queryAllResume();
 	
+	/**
+	 * 修改简历
+	 */
+	public void updateResume(Resume resume);
 }

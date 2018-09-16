@@ -13,11 +13,16 @@ select * from resume
 </select>
 <insert id="addResume" parameterType="Resume" >
 
-    insert into resume (name,sex,uid,age,national,school,education,major,native_place,phone,mail,dept_id,pid,last_work,salary_expectation,interest,politics_status)
-    values (#{name},#{sex},#{uid},#{age},#{national},#{school},#{education},#{major},#{nativePlace},#{phone},#{mail},#{deptId},#{pid},#{lastWork},#{salaryExpectation},#{interest},#{politicsStatus})
+    insert into resume (name,sex,uid,age,national,school,education,major,native_place,phone,mail,job,last_work,salary_expectation,interest,politics_status,work_experience)
+    values (#{name},#{sex},#{uid},#{age},#{national},#{school},#{education},#{major},#{nativePlace},#{phone},#{mail},#{job},#{lastWork},#{salaryExpectation},#{interest},#{politicsStatus},#{workExperience})
 </insert>
  
+ 	<update id="updateResume" parameterType="Resume">
+ 	update  resume set  name =#{name},sex =#{sex},age=#{age},national=#{national},school=#{school},education={education},major=#{major},native_place=#{nativePlace},phone=#{phone},mail=#{mail},job=#{job}
+ 	,last_work={lastWork},salary_expectation=#{salaryExpectation},interest=#{interest},politics_status=#{politicsStatus},work_experience=#{workExperience}  where  uid=#{uid}
  	
+ 	
+ 	</update>
 	
  
 

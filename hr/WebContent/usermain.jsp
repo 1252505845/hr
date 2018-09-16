@@ -35,9 +35,9 @@ color:  #CF5202;
 <body>
 <div><h3>你好     <span style="color: #EC7D16">${user.phone}</span> </h3></div>
     <div class="a1">
-		      <div><a href="queryRes" id="look">查看简历</a></div>
-		       <div><a href="#">查看招聘信息</a></div>
-		       <div><a href="">退出</a></div>
+		      <div><a href="queryRes" >查看简历</a></div>
+		       <div><a href="tolookRec">查看招聘信息</a></div>
+		       <div><a href="index">退出</a></div>
     	 </div>
 </body>
 </html>

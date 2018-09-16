@@ -4,10 +4,13 @@
 
 <insert id="addRecruit" parameterType="Recruit">
 
-insert into recruit (company,pay,content,dept_id,pid,create_time)
- values(#{company},#{pay},#{content},#{deptId},#{pid},#{createTime})
+insert into recruit (company,pay,content,dept_id,pid,create_time,addr,education,work_experience,admin_id)
+ values(#{company},#{pay},#{content},#{deptId},#{pid},#{createTime},#{addr},#{education}
+ ,#{workExperience},#{adminId})
 </insert>
 
- <select id=""></select>
+ <select id="queryAllRecruit" resultType="Recruit">
+ select * from recruit
+ </select>
  	
 </mapper>

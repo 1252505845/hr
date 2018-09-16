@@ -2,7 +2,7 @@ package hr.bean;
 
 public class Admin {
    private int  adminId;
-   private String adminPhone;//用于管理员的登陆
+   private String phone;//用于管理员的登陆
    private String psw;
    
    
@@ -13,23 +13,25 @@ public int getAdminId() {
 public void setAdminId(int adminId) {
 	this.adminId = adminId;
 }
-public String getAdminPhone() {
-	return adminPhone;
-}
-public void setAdminPhone(String adminPhone) {
-	this.adminPhone = adminPhone;
-}
+
 public String getPsw() {
 	return psw;
 }
 public void setPsw(String psw) {
 	this.psw = psw;
 }
-public Admin(int adminId, String adminPhone, String psw) {
+
+public Admin(int adminId, String phone, String psw) {
 	super();
 	this.adminId = adminId;
-	this.adminPhone = adminPhone;
+	this.phone = phone;
 	this.psw = psw;
+}
+public String getPhone() {
+	return phone;
+}
+public void setPhone(String phone) {
+	this.phone = phone;
 }
 public Admin() {
 	super();

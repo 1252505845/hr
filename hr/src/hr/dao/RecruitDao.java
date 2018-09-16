@@ -13,7 +13,7 @@ public interface RecruitDao {
 	
 	
 	/**
-	 * 查看招聘信息
+	 * 游客查看所有的招聘信息
 	 */
 	public  List<Recruit> queryAllRecruit();
 }

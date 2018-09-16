@@ -1,5 +1,7 @@
 package hr.service;
 
+import java.util.List;
+
 import hr.bean.Recruit;
 
 public interface RecruitService {
@@ -8,4 +10,6 @@ public interface RecruitService {
  * @param recruit
  */
 	public void addRecruit(Recruit recruit);
+	
+	public  List<Recruit> queryAllRecruit();
 }

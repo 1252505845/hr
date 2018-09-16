@@ -29,6 +29,12 @@ public class ResumeController {
      @Autowired
      private UserService userService;
      
+     @RequestMapping("/main")
+     public String main() {
+    	 return "main";
+    	 
+     }
+     
 
      @RequestMapping("/queryRes")
      public String queryRes(Model model,HttpSession session) {
@@ -36,35 +42,17 @@ public class ResumeController {
     	User user= (User) session.getAttribute("user");//
     	//从后台查询游客的信息
     	
-    	List<Dept>deptList=selectJobService.queryALLDept();
-    	model.addAttribute("deptList", deptList);
-    	
     		Resume resume=resumeService.queryResume(user.getUid());
         	if(resume!=null) {
             	session.setAttribute("resume", resume);
-                //如果没有
+                
             	return "lookmain";
         	}
         	return "main";
     
      }
-     @RequestMapping("/main")
-     public String main() {
-    	 return "main";
-    	 
-     }
-     
-     @ResponseBody
-	@RequestMapping("/queryPosition")
-	public String queryPos(int deptId) {
-		List<Position> list=selectJobService.queryPositionbyId(deptId);
-	  for (Position p : list) {
-		System.out.println(p.getDeptId()+","+p.getPid()+","+p.getpName());
-	}
-		System.out.println(JSONObject.toJSONString(list));
-		return JSONObject.toJSONString(list);
-		
-	}
+    
+    
      /**
       * 添加简历
       * @param model
@@ -74,20 +62,56 @@ public class ResumeController {
       */
      @RequestMapping("/addResume")
      public String addResume(Model model,Resume resume,HttpSession session) {
-    	 if(resume.getName()==null||resume.getSex()==null||resume.getAge()==null||
-    resume.getNational()==null||resume.getSchool()==null||resume.getEducation()==null
-    ||resume.getMajor()==null||resume.getNativePlace()==null||resume.getPhone()==null
-    ||resume.getMail()==null||resume.getDeptId()==0||resume.getPid()==0
-    ||resume.getPoliticsStatus()==null||resume.getLastWork()==null||
-    resume.getWorkExperience()==null) {
+    	
+    
+    	 if(resume.getName()==null||resume.getName()==""||resume.getSex()==null||resume.getSex()==""
+    ||resume.getAge()==null||resume.getAge()==""||resume.getNational()==null||resume.getNational()==""||resume.getSchool()==null||resume.getSchool()==""
+    ||resume.getEducation()==null||resume.getEducation()==""||resume.getMajor()==null||resume.getMajor()==""||resume.getNativePlace()==null||resume.getNativePlace()==""
+    ||resume.getPhone()==null||resume.getPhone()==""||resume.getMail()==null||resume.getMail()==""||resume.getJob()==null||resume.getJob()==""
+    ||resume.getPoliticsStatus()==null||resume.getPoliticsStatus()==""
+    || resume.getWorkExperience()==null||resume.getWorkExperience()=="")
+    	 {
     		 model.addAttribute("msg", "请输入必填项");
     		 return"main";
     	 }
+    	 String reg="^1[3|5|7|8]\\d{9}$";
+ 		if(!resume.getPhone().matches(reg)) {
+ 	     model.addAttribute("msg","输入的手机号不合法");
+ 	     return "main";
+ 		}
+ 		
+ 		
     	 User user= (User) session.getAttribute("user");
     	 resume.setUid(user.getUid());
 		 resumeService.addResume(resume);
-		 //转到有用户信息的表
+		 //转到有用户信息的页面
 		 return"lookmain";
      }
+     
+     @RequestMapping("/updateResume")
+     public String updateResume(Model model,Resume resume) {
+
+    	 if(resume.getName()==null||resume.getName()==""||resume.getSex()==null||resume.getSex()==""
+    ||resume.getAge()==null||resume.getAge()==""||resume.getNational()==null||resume.getNational()==""||resume.getSchool()==null||resume.getSchool()==""
+    ||resume.getEducation()==null||resume.getEducation()==""||resume.getMajor()==null||resume.getMajor()==""||resume.getNativePlace()==null||resume.getNativePlace()==""
+    ||resume.getPhone()==null||resume.getPhone()==""||resume.getMail()==null||resume.getMail()==""||resume.getJob()==null||resume.getJob()==""
+    ||resume.getPoliticsStatus()==null||resume.getPoliticsStatus()==""
+    || resume.getWorkExperience()==null||resume.getWorkExperience()=="")
+    	 {
+    		 model.addAttribute("msg", "必填项不能为空");
+    		 return"lookmain";
+    	 }
+    	 String reg="^1[3|5|7|8]\\d{9}$";
+ 		if(!resume.getPhone().matches(reg)) {
+ 	     model.addAttribute("msg","输入的手机号不合法");
+ 	     return "lookmain";
+ 		}
+    	 resumeService.updateResume(resume);
+		return "lookmain";
+    	 
+    	 
+     }
+     
+     
 	
 }

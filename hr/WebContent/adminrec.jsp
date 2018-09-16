@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <style type="text/css">
 a{
 text-decoration:none;
@@ -35,17 +33,13 @@ color:  #CF5202;
 </style>
 </head>
 <body>
-<h1>管理员主页面</h1>
 <div><h3>欢迎  管理员    <span style="color: #EC7D16">${admin.phone}</span> </h3></div>
-    <div class="a1">
-		      <div><a href="toAdminrec" >招聘管理</a></div>
-		       <div><a href="#">部门职位管理</a></div>
-		       <div><a href="#">员工管理</a></div>
-		       <div><a href="#">培训管理</a></div>
-		       <div><a href="#">薪资管理</a></div>
-		       <div><a href="#">奖惩管理</a></div>
-		       <div><a href="#">考勤管理</a></div>
-		       <div><a href="index">退出</a></div>
-    	 </div>
+<div class="a1">
+   <div><a href="toAddRec">发布招聘信息</a></div>
+   <div><a href="#">查看招聘信息</a></div>
+   <div><a href="#"></a></div>
+   <div><a href="#"></a></div>
+   <div><a href="toAdmin">退出</a></div>
+  </div> 
 </body>
 </html>

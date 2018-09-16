@@ -22,6 +22,12 @@ public class RecruitServiceImpl implements RecruitService {
 		recruitDao.addRecruit(recruit);
 		
 	}
+
+	@Override
+	public List<Recruit> queryAllRecruit() {
+		// TODO Auto-generated method stub
+		return recruitDao.queryAllRecruit();
+	}
 	
 	 
 	

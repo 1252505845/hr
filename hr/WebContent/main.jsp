@@ -26,13 +26,14 @@ text-decoration:none;
 display:block;
 color: white;
 font-size: 1.5em;
-height: 50px;
+line-height: 50px;
 
 }
 .end>div{
 
 float:left;
-margin-left: 100px;
+margin-top:20px;
+margin-left: 50px;
 
 
 }
@@ -66,50 +67,41 @@ height: 100%;
  .msg{
   text-align: center;
  color:#ff4e00;
+ margin-top:5px;
+ margin-right: 150px;
+ font-size: 1.5em;
   }
-  .user{
+.star{
+font-size:1.2em;
+font-weight:bolder;
+color: #E6BC12;
+}
+.top{
+overflow:auto;
 
-  width:100px;
-  border:1px solid green;
-  margin-right:50px;
-	height: 50px;
-	color: white;
-	font-size: 1.5em;
-  }
+background-color:  #568BD3;
+}
+.top>div{
+float: left;
+margin-right: 150px;
+
+}
 
 </style>
 
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-$(function () {
-	$("#dept").change(function(){
-		if($(this).val()==0){
-			$("#position option:gt(0)").remove();
-			return;
-		}
-		$.ajax({
-			url:"queryPosition",
-			type:"post",
-			dataType:"json",
-			data:{
-				deptId:$(this).val()
-			},
-			success:function(data){
-				$("#position option:gt(0)").remove();
-				$.each(data, function(index, item){	
-					var opt = "<option value='"+ item.pid +"'>"+ item.pName +"</option>";
-                    $("#position").append(opt);
-				});
-			}
-		});
-		
-	});
-	
-});
 </script>
 </head>
 <body>
-  <h1>没有简历的用户</h1>
+ 
+  <div class="top">
+      <div><a href="user">首页</a></div>
+      <div><a href="queryRes">查看简历</a></div>
+      <div><a href="tolookRec">查看招聘信息</a></div>
+      <div><a href="index">退出</a></div>
+  
+  </div>
     <div><h3>你好     <span style="color: #EC7D16">${user.phone}</span> </h3></div>
    
     	 <form action="addResume" method="post">
@@ -119,30 +111,30 @@ $(function () {
     					<td colspan="4"  align="center">个人简历</td>
     				</tr>
     				<tr>
-    					<td >真实姓名</td>
+    					<td ><span class="star">*</span>真实姓名</td>
     					<td ><input tyep="text" name="name"  placeholder="请输入你的姓名"/></td>
-    				     <td >性别</td>
+    				     <td ><span class="star">*</span>性别</td>
     				     <td >
     				    
-    				     	<input type="radio" name="sex" style="width:10px"/>男
-    				     	<input type="radio" name="sex" style="width:10px" />女  
+    				     	<input type="radio" name="sex" value="男" style="width:10px"/>男
+    				     	<input type="radio" name="sex"  value="女"  style="width:10px" />女  
     				     </td>
     				</tr>
     				<tr>
-    					<td >年龄</td>
+    					<td ><span class="star">*</span>年龄</td>
     					<td > <input type="number" name="age" min="1" max="50"  placeholder="请输入年龄"/></td>
-    					 <td>民族</td>
+    					 <td><span class="star">*</span>民族</td>
     				     <td><input type="text" name="national"   placeholder="请输入你的民族"/></td>
     					
     				</tr>
     				<tr>
     				  
-    					<td>学校</td>
+    					<td><span class="star">*</span>学校</td>
     					<td><input type="text" name="school"  placeholder="请输入你的学校"/></td>
-    				     <td >学历</td>
+    				     <td ><span class="star">*</span>学历</td>
     					<td >
     						<select name="education">
-	    					   <option>学历</option>
+	    					  <option>初中及以下</option>
 	    					   <option>博士</option>
 	    					   <option>硕士</option>
 	    					   <option>本科</option>
@@ -154,22 +146,22 @@ $(function () {
     					</td>
     				</tr>
     				<tr>
-    					 <td>专业</td>
+    					 <td><span class="star">*</span>专业</td>
     					<td><input type="text" name="major"  placeholder="请输入你的专业"/></td>
-    				     <td>籍贯</td>
+    				     <td><span class="star">*</span>籍贯</td>
     				    <td><input type="text" name="nativePlace" placeholder="请输入你的籍贯"/></td>   
     				</tr>
     				<tr>
-    					<td >联系方式</td>
+    					<td ><span class="star">*</span>联系方式</td>
     					<td ><input type="text" name="phone"  placeholder="请输入你的联系方式" /></td>
-    				    <td >邮箱</td>
+    				    <td ><span class="star">*</span>邮箱</td>
     					<td ><input type="email" name="mail"  placeholder="请输入你的邮箱"/></td>
     				</tr>
     				<tr>
-    					<td >应聘岗位</td>
+    					<td ><span class="star">*</span>应聘岗位</td>
     					<td >
-	    				
-	    					<select id="dept" name="deptId">
+	    				<input type="text" name="job" placeholder="请输入你要应聘的岗位"/>
+	    					<!--  <select id="dept" name="deptId">
 		    					<option value="0">请选择部门</option>
 		    					<c:forEach items="${deptList}" var="dept">
 		    						<option value="${dept.deptId}">${dept.deptName}</option>
@@ -178,11 +170,11 @@ $(function () {
 	    					</select>
 	    					<select id="position" name="pid">
 	    						<option value="0">请选择职位</option>
-	    					</select>
+	    					</select>-->
 	    				 
 	    					
     					</td>
-    					<td>政治面貌</td>
+    					<td><span class="star">*</span>政治面貌</td>
     					<td>
     					 <select name="politicsStatus">
     							<option>群众</option>
@@ -198,12 +190,12 @@ $(function () {
     				<tr>
     					<td >上份工作</td>
     					<td ><input type="text" name="lastWork"  placeholder="请输入工作名称"/></td>
-    				    <td>工作经验</td>
+    				    <td><span class="star">*</span>工作经验</td>
     				    <td><input type="text" name="workExperience"  placeholder="请输入几年的工作经验"/></td>
     				</tr>
     				
     				<tr>
-    					<td >期望薪资</td>
+    					<td ><span class="star">*</span>期望薪资</td>
     					<td >
     					 <select name="salaryExpectation">
     							<option>3000以下</option>
@@ -224,11 +216,12 @@ $(function () {
     			<div class="msg"><c:if test="${not empty msg}">
 						   <c:out value="${msg}"/>
 						</c:if></div>
+						<div style="color: red">黄色标记为必填项</div>
     	    <div class="end"> 
     	        <div><input type="submit" value="更新并保存" style="width:150px" /></div>
     	          
     	         <div><input type="reset" value="取消" style="width:100px"/></div>
-    	          <div class="return"><a href="main" >返回</a></div>
+    	          <div class="return"><a href="user" >返回</a></div>
     	     </div>
     	  
     	</div>

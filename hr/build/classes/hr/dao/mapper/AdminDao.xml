@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="hr.dao.AdminDao">
 <sql id="admin_column">
-  select admin_id,admin_phone,psw
+  select admin_id,phone,psw
 </sql>
 <select id="queryAdmin" resultType="Admin">
-   <include refid="admin_column"></include>  from admin where admin_phone=#{arg0} and psw=#{arg0}
+   <include refid="admin_column"></include>  from admin where phone=#{arg0} and psw=#{arg0}
 </select>
 
  

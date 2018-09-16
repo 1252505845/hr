@@ -2,7 +2,7 @@ package hr.bean;
 
 public class Employee {
 	 private int  empId;
-	 private String empPhone;//用于管理员的登陆
+	 private String phone;//用于管理员的登陆
 	 private String psw;
 	 private String empName;//姓名
 	 private  int deptId;
@@ -14,12 +14,7 @@ public class Employee {
 	public void setEmpId(int empId) {
 		this.empId = empId;
 	}
-	public String getEmpPhone() {
-		return empPhone;
-	}
-	public void setEmpPhone(String empPhone) {
-		this.empPhone = empPhone;
-	}
+	
 	public String getPsw() {
 		return psw;
 	}
@@ -50,15 +45,22 @@ public class Employee {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	public Employee(int empId, String empPhone, String psw, String empName, int deptId, String sex, String position) {
+	
+	public Employee(int empId, String phone, String psw, String empName, int deptId, String sex, String position) {
 		super();
 		this.empId = empId;
-		this.empPhone = empPhone;
+		this.phone = phone;
 		this.psw = psw;
 		this.empName = empName;
 		this.deptId = deptId;
 		this.sex = sex;
 		this.position = position;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public Employee() {
 		super();

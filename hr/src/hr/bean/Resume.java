@@ -9,8 +9,9 @@ public class Resume {
 	   private String sex;
 	   private String education;//学历
 	   private String mail;//邮箱
-	   private int deptId;//应聘的部门id
-	   private int pid;//应聘的职位id
+	   private String job;
+	 //  private int deptId;//应聘的部门id
+	  // private int pid;//应聘的职位id
 	   private String politicsStatus;//政治面貌
 	   private String workExperience;//工作经验
 	   private String salaryExpectation;//期望薪资
@@ -25,9 +26,16 @@ public class Resume {
 	
 	
 	
-	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, int deptId,
-			int pid, String politicsStatus, String workExperience, String salaryExpectation, String interest,
-			String school, String age, String national, String nativePlace, String major, String lastWork) {
+	
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork) {
 		super();
 		this.rid = rid;
 		this.uid = uid;
@@ -36,8 +44,7 @@ public class Resume {
 		this.sex = sex;
 		this.education = education;
 		this.mail = mail;
-		this.deptId = deptId;
-		this.pid = pid;
+		this.job = job;
 		this.politicsStatus = politicsStatus;
 		this.workExperience = workExperience;
 		this.salaryExpectation = salaryExpectation;
@@ -48,18 +55,6 @@ public class Resume {
 		this.nativePlace = nativePlace;
 		this.major = major;
 		this.lastWork = lastWork;
-	}
-	public int getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(int deptId) {
-		this.deptId = deptId;
-	}
-	public int getPid() {
-		return pid;
-	}
-	public void setPid(int pid) {
-		this.pid = pid;
 	}
 	public String getPhone() {
 		return phone;

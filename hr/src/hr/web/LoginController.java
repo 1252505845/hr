@@ -25,7 +25,7 @@ public class LoginController  {
 	@Autowired
 	private  EmpService empService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String index() {
 		return "login";
 	}
