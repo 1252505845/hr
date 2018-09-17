@@ -1,5 +1,7 @@
 package hr.bean;
 
+import java.util.Date;
+
 public class Resume {
   //简历实体类
 	  private int rid;
@@ -22,11 +24,108 @@ public class Resume {
 	  private String  nativePlace;//籍贯
 	  private String major;//专业
 	  private String lastWork;//上一份工作
-	  
+	  private String sign="未查看";//标记简历是否被查看
+	 private String status="没有面试";//没有面试，已通知面试，拒绝面试,接受面试
+	  private Date date;//面试时间
 	
 	
 	
 	
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork, String sign, String status,
+			Date date) {
+		super();
+		this.rid = rid;
+		this.uid = uid;
+		this.phone = phone;
+		this.name = name;
+		this.sex = sex;
+		this.education = education;
+		this.mail = mail;
+		this.job = job;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salaryExpectation = salaryExpectation;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.sign = sign;
+		this.status = status;
+		this.date = date;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork, String sign,
+			String status) {
+		super();
+		this.rid = rid;
+		this.uid = uid;
+		this.phone = phone;
+		this.name = name;
+		this.sex = sex;
+		this.education = education;
+		this.mail = mail;
+		this.job = job;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salaryExpectation = salaryExpectation;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.sign = sign;
+		this.status = status;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork, String sign) {
+		super();
+		this.rid = rid;
+		this.uid = uid;
+		this.phone = phone;
+		this.name = name;
+		this.sex = sex;
+		this.education = education;
+		this.mail = mail;
+		this.job = job;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salaryExpectation = salaryExpectation;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.sign = sign;
+	}
+	public String getSign() {
+		return sign;
+	}
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
 	public String getJob() {
 		return job;
 	}

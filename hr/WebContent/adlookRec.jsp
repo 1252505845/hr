@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -27,21 +27,6 @@ overflow: auto;
 float: left;
 margin-right: 20px;
 }
-
-a{
-text-decoration:none;
-display:block;
-color: white;
-font-size: 1.5em;
-line-height: 50px;
-}
-.end{
-width:200px;
-height: 50px;
-text-align:center;
-background-color: #1479E1;
-margin-left: 300px;
-}
 .a1{
 overflow: auto;
 }
@@ -50,32 +35,24 @@ overflow: auto;
 float: left;
 margin-right: 300px;
 }
-.msg{
-  text-align: center;
- color:#ff4e00;
- margin-top:5px;
- margin-right: 150px;
- font-size: 1.5em;
-  }
+a{
+text-decoration:none;
+display:block;
+
+font-size: 1.5em;
+line-height: 50px;
+}
 </style>
 </head>
 <body>
-<h1>游客看招聘信息</h1>
-<div class="top">
-   <div><a href="user" style="color: black;">返回</a></div>
-</div>
-
-<div class="msg"><c:if test="${not empty msg}">
-						   <c:out value="${msg}"/>
-						</c:if></div>
-						
-<c:forEach items="${recruitList}" var="recruit" >
+<div><a href="toAdminrec">返回</a></div>
+   <c:forEach items="${recruitList}" var="recruit" >
   <div class="big">
     <div class="a1">
             <div>${recruit.deptName} &nbsp; ${recruit.posName}</div>
             <div>${recruit.company}</div>
     </div>
-   
+      
       <div class="b1">
          <div style="color: red"><span>薪资: </span>${recruit.pay}</div>
          <div><span>工作地点: </span>${recruit.addr}</div>
@@ -85,12 +62,10 @@ margin-right: 300px;
       </div>
       <div><span>发布时间: </span><fmt:formatDate value="${recruit.createTime}" pattern="yyyy-MM-dd"/></div>
       <div><span>岗位要求:</span>&nbsp; ${recruit.content}</div>
-      <div class="end"><a href="apply">申请职位</a></div>
      
       <hr>
   </div>
 
 </c:forEach>
-
 </body>
 </html>

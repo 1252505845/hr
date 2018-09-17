@@ -17,6 +17,10 @@ public interface ResumeDao {
 	 */
 	public Resume queryResume(int uid);
 	/**
+	 * 根据简历ID查询简历
+	 */
+	public Resume queryResumeByRid(int rid);
+	/**
 	 * 管理员查询所有的简历
 	 */
 	public List<Resume> queryAllResume();
@@ -25,4 +29,10 @@ public interface ResumeDao {
 	 * 修改简历
 	 */
 	public void updateResume(Resume resume);
+	
+	public void delResume(int uid);
+
+	/**
+	 * 管理员添加面试时间，
+	 */
 }

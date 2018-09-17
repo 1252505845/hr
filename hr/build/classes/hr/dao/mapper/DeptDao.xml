@@ -8,6 +8,8 @@
    <include refid="dept_column"></include>  from dept 
 </select>
 
- 
+ <select id="queryDeptById" resultType="Dept">
+     <include refid="dept_column"></include>  from dept where dept_id=#{arg0}
+ </select>
  	
 </mapper>

@@ -12,4 +12,5 @@ public interface RecruitService {
 	public void addRecruit(Recruit recruit);
 	
 	public  List<Recruit> queryAllRecruit();
+	public  List<Recruit> queryAdRecruit(int adminId);
 }

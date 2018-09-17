@@ -88,13 +88,7 @@ margin-right: 150px;
 
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 
-<script type="text/javascript">
 
-    /*本函数传递两个参数，sex是要获取元素的名称，${resume.sex}是后台所获取的数据*/
-
-    sex('sex','${resume.sex}');
-
-</script>
 
 <script type="text/javascript">
 
@@ -117,32 +111,60 @@ margin-right: 150px;
 </script>
 <script type="text/javascript">
 $(function () {
+	sex('sex','${resume.sex}');
+	
      var flag=$("#edu").val();
-     //根据值让option选中
-     
+     //根据值让option选中     
      if(flag=="博士"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
+    	 //$("eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	 $('#eduSelect')[0].selectedIndex = 0; 
+     }else if(flag=="硕士"){
+    	 //$("#eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	 $('#eduSelect')[0].selectedIndex = 1;	
+     }else if(flag=="本科"){
+    	 //$("eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	  $('#eduSelect')[0].selectedIndex = 2;
+    	 
+     }else if(flag=="大专"){
+    	 $('#eduSelect')[0].selectedIndex = 3;
+    	 //$("eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	 
+     }else if(flag=="高中"){
+    	 //$("eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	  $('#eduSelect')[0].selectedIndex = 4; 
+     }else if(flag=="初中及以下"){
+    	// $("eduSelect option [value='"+flag+"']").prop("selected","selected");
+    	 $('#eduSelect')[0].selectedIndex = 5;
+    	
      }
-     if(flag=="硕士"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
+  
+     var flag2=$("#polhid").val();
+     if(flag2=="群众"){
+    	 $('#polSelect')[0].selectedIndex = 0;
+     }else if(flag2=="团员"){
+    	 $('#polSelect')[0].selectedIndex = 1; 	 
+     }else if(flag2=="预备党员"){
+    	 $('#polSelect')[0].selectedIndex = 2;
+    	
+     } else if(flag2=="党员"){
+    	 $('#polSelect')[0].selectedIndex = 3;
+
      }
-     if(flag=="本科"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
-     }
-     if(flag=="大专"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
-     }
-     if(flag=="高中"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
-     }
-     if(flag=="初中及以下"){
-    	 $("eduSelect option [value='"+flag+"']").prop("selected","selected");
-    	 return;
+     
+     var flag3=$("#salhid").val();
+     if(flag3=="3000以下"){
+    	 $('#salSelect')[0].selectedIndex = 0;	
+     } else if(flag3=="3000-5000"){
+    	 $('#salSelect')[0].selectedIndex = 1;	 
+     }else if(flag3=="5000-8000"){
+    	 $('#salSelect')[0].selectedIndex = 2;
+    	
+     }else if(flag3=="8000-10000"){
+    	 $('#salSelect')[0].selectedIndex = 3;
+ 
+     }else if(flag3=="10000以上"){
+    	 $('#salSelect')[0].selectedIndex = 4;
+    
      }
      
      
@@ -189,7 +211,7 @@ $(function () {
     					<td><input type="text" name="school" value="${resume.school}" placeholder="请输入你的学校"/></td>
     				     <td ><span class="star">*</span>学历</td>
     					<td >
-    					  <input type="hidden" id="edu" value=" ${resume.education}" />	
+    					  <input type="hidden" id="edu" value="${resume.education}" />	
     					 
     					  <select id="eduSelect" name="education">
     					   
@@ -223,8 +245,14 @@ $(function () {
     					</td>
     					<td><span class="star">*</span>政治面貌</td>
     					<td>
-    					
-    						${resume.politicsStatus}
+    					  <input type="hidden" id="polhid" value="${resume.politicsStatus}" />	
+    						<!--${resume.politicsStatus}  -->
+    						 <select id="polSelect" name="politicsStatus">
+    							<option value="群众">群众</option>
+    							<option value="团员">团员</option>
+    							<option value="预备党员">预备党员</option>
+    							<option value="党员">党员</option>
+    						</select>
     					</td>
     					
     				</tr>
@@ -239,8 +267,15 @@ $(function () {
     				<tr>
     					<td ><span class="star">*</span>期望薪资</td>
     					<td >
-    					
-    						${resume.salaryExpectation}
+    					 <input type="hidden" id="salhid" value="${resume.salaryExpectation}" />
+    						
+    						 <select id="salSelect" name="salaryExpectation">
+    							<option value="3000以下">3000以下</option>
+    							<option value="3000-5000">3000-5000</option>
+    							<option value="5000-8000">5000-8000</option>
+    							<option value="8000-10000">8000-10000</option>
+    							<option value="10000以上">10000以上</option>
+    						</select> 
     					</td>
     					<td >兴趣爱好</td>            
     					<td ><input type="text" name="interest" value="${resume.interest}" placeholder="请输入你的爱好"/></td>
@@ -256,6 +291,7 @@ $(function () {
     	         <div><input type="submit" value="更新并保存" style="width:150px" /></div>
     	          
     	         <div><input type="reset" value="取消" style="width:100px"/></div>
+    	         <div style="background-color: #CF5202;"><a href="del">删除简历</a></div>
     	          <div class="return"><a href="user" >返回</a></div>
     	     </div>
     	     

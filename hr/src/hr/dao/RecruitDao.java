@@ -16,4 +16,9 @@ public interface RecruitDao {
 	 * 游客查看所有的招聘信息
 	 */
 	public  List<Recruit> queryAllRecruit();
+	
+	/**
+	 * 管理员查看自己发布的招聘信息
+	 */
+	public  List<Recruit> queryAdRecruit(int adminId);
 }

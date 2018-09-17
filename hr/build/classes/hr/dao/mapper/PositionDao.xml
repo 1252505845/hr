@@ -5,7 +5,9 @@
 <select id="queryPositionbyId" resultType="Position">
   select *  from  position where dept_id=#{arg0}
 </select>
-
+<select id="queryPos"  resultType="Position">
+select *  from  position where pid=#{arg0}
+</select>
  
  	
 </mapper>

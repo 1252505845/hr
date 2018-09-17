@@ -85,12 +85,32 @@ public class RecruitController {
 			return "addRec";
 		}
 		Admin admin=(Admin) session.getAttribute("admin");
-		recruit.setAdminId(admin.getAdminId());
-		recruit.setCreateTime(DateUtils.getToday());
-		recruitService.addRecruit(recruit);
-		session.setAttribute("recruit", recruit);
-		return "showRec";
+		if(admin!=null) {
+			recruit.setAdminId(admin.getAdminId());
+			recruit.setCreateTime(DateUtils.getToday());
+			recruitService.addRecruit(recruit);
+			session.setAttribute("recruit", recruit);
+			return "showRec";
+		}
+		return"";
 		
 	}
+	
+	/**
+	 * 管理员查看自己发布的招聘信息
+	 */
+	@RequestMapping("/adlookRec")
+	public String  adlookRec(HttpSession session,Model model) {
+		Admin admin=(Admin) session.getAttribute("admin");
+		
+		if(admin!=null) {
+			
+			List<Recruit>list=recruitService.queryAdRecruit(admin.getAdminId());
+			model.addAttribute("recruitList", list);
+			return "adlookRec";
+		}
+		return"";
+	}
+	
 	
 }

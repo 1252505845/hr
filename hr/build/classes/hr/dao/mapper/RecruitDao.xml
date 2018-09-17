@@ -10,7 +10,13 @@ insert into recruit (company,pay,content,dept_id,pid,create_time,addr,education,
 </insert>
 
  <select id="queryAllRecruit" resultType="Recruit">
- select * from recruit
+ select r.*,dept_name,pos_name from recruit r,dept d,position p
+ where r.dept_id=d.dept_id and r.pid=p.pid
+ </select>
+ 
+ <select id="queryAdRecruit" resultType="Recruit">
+    select r.*,dept_name,pos_name from recruit r,dept d,position p
+ where r.dept_id=d.dept_id and r.pid=p.pid  and admin_id=#{arg0}
  </select>
  	
 </mapper>

@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import hr.bean.Admin;
 import hr.bean.Employee;
+import hr.bean.Resume;
 import hr.bean.User;
 import hr.service.AdminService;
 import hr.service.EmpService;
+import hr.service.ResumeService;
 import hr.service.UserService;
 
 @Controller
@@ -24,6 +26,8 @@ public class LoginController  {
 	private AdminService adminService;
 	@Autowired
 	private  EmpService empService;
+	@Autowired
+	private ResumeService resumeService;
 	
 	@RequestMapping("/index")
 	public String index() {
@@ -47,7 +51,15 @@ public class LoginController  {
 			if(user!=null) {
 				session.setAttribute("user", user);	
 				//游客登陆
-				return "usermain";
+				Resume resume=resumeService.queryResume(user.getUid());
+				if(resume!=null) {
+					//如果已经有简历的游客
+					return "usermain";
+				}else {
+					//没有简历的游客
+					return "usermain2";
+				}
+				
 			}
 			Admin admin=adminService.queryAdmin(phone, psw);
 			if(admin!=null) {

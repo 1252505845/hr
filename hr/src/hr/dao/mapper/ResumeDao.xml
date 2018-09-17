@@ -6,11 +6,16 @@
 
   select * from resume where uid =#{arg0}
 </select>
+<select id="queryResumeByRid" resultType="Resume">
+
+  select * from resume where rid =#{arg0}
+</select>
 
 <select id="queryAllResume" resultType="Resume">
 
 select * from resume
 </select>
+
 <insert id="addResume" parameterType="Resume" >
 
     insert into resume (name,sex,uid,age,national,school,education,major,native_place,phone,mail,job,last_work,salary_expectation,interest,politics_status,work_experience)
@@ -18,12 +23,14 @@ select * from resume
 </insert>
  
  	<update id="updateResume" parameterType="Resume">
- 	update  resume set  name =#{name},sex =#{sex},age=#{age},national=#{national},school=#{school},education={education},major=#{major},native_place=#{nativePlace},phone=#{phone},mail=#{mail},job=#{job}
- 	,last_work={lastWork},salary_expectation=#{salaryExpectation},interest=#{interest},politics_status=#{politicsStatus},work_experience=#{workExperience}  where  uid=#{uid}
+ 	update  resume set  name =#{name},sex =#{sex},age=#{age},national=#{national},school=#{school},education=#{education},major=#{major},native_place=#{nativePlace},phone=#{phone},mail=#{mail},job=#{job}
+ 	,last_work=#{lastWork},salary_expectation=#{salaryExpectation},interest=#{interest},politics_status=#{politicsStatus},work_experience=#{workExperience},status=#{status},sign=#{sign},date=#{date} where  uid=#{uid}
  	
  	
  	</update>
 	
- 
+ <delete id="delResume" parameterType="int">
+    delete from resume where uid=#{uid}
+ </delete>
 
 </mapper>

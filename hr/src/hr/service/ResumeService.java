@@ -21,6 +21,8 @@ public interface ResumeService {
 	
 	public void updateResume(Resume resume);
 	
+	public void delResume(int uid);
+	public Resume queryResumeByRid(int rid);
 
 	
 }

@@ -28,6 +28,12 @@ public class RecruitServiceImpl implements RecruitService {
 		// TODO Auto-generated method stub
 		return recruitDao.queryAllRecruit();
 	}
+
+	@Override
+	public List<Recruit> queryAdRecruit(int adminId) {
+		// TODO Auto-generated method stub
+		return recruitDao.queryAdRecruit(adminId);
+	}
 	
 	 
 	

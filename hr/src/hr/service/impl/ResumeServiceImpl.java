@@ -41,7 +41,15 @@ public class ResumeServiceImpl implements ResumeService {
 		resumeDao.updateResume(resume);
 	}
 
-	
+	@Override
+	public void delResume(int uid) {
+		// TODO Auto-generated method stub
+		resumeDao.delResume(uid);
+	}
+
+	public Resume queryResumeByRid(int rid) {
+		return resumeDao.queryResumeByRid(rid);
+	}
 
 
 }

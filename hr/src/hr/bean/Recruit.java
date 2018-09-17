@@ -19,6 +19,8 @@ public class Recruit {
       private String content;//招聘信息内容
       private int deptId;
       private int pid;
+      private String deptName;
+      private String posName;
       private Date createTime;//发布时间
 	
       
@@ -27,6 +29,35 @@ public class Recruit {
       
       
       public Recruit(int recId, int adminId, String company, String pay, String addr, String workExperience,
+			String education, String content, int deptId, int pid, String deptName, String posName, Date createTime) {
+		super();
+		this.recId = recId;
+		this.adminId = adminId;
+		this.company = company;
+		this.pay = pay;
+		this.addr = addr;
+		this.workExperience = workExperience;
+		this.education = education;
+		this.content = content;
+		this.deptId = deptId;
+		this.pid = pid;
+		this.deptName = deptName;
+		this.posName = posName;
+		this.createTime = createTime;
+	}
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+	public String getPosName() {
+		return posName;
+	}
+	public void setPosName(String posName) {
+		this.posName = posName;
+	}
+	public Recruit(int recId, int adminId, String company, String pay, String addr, String workExperience,
 			String education, String content, int deptId, int pid, Date createTime) {
 		super();
 		this.recId = recId;
