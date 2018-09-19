@@ -25,12 +25,82 @@ public class Resume {
 	  private String major;//专业
 	  private String lastWork;//上一份工作
 	  private String sign="未查看";//标记简历是否被查看
-	 private String status="没有面试";//没有面试，已通知面试，拒绝面试,接受面试
+	 private String status="没有面试";//没有面试，已通知面试，拒绝面试,接受面试，已面试
 	  private Date date;//面试时间
+	  private String offer;//面试官判断  面试成功  面试失败
+	private String  accept ;//游客选择 接不接受录用    接受录用  拒绝录用
 	
 	
 	
-	
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork, String sign, String status,
+			Date date, String offer, String accept) {
+		super();
+		this.rid = rid;
+		this.uid = uid;
+		this.phone = phone;
+		this.name = name;
+		this.sex = sex;
+		this.education = education;
+		this.mail = mail;
+		this.job = job;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salaryExpectation = salaryExpectation;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.sign = sign;
+		this.status = status;
+		this.date = date;
+		this.offer = offer;
+		this.accept = accept;
+	}
+	public String getAccept() {
+		return accept;
+	}
+	public void setAccept(String accept) {
+		this.accept = accept;
+	}
+	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
+			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
+			String age, String national, String nativePlace, String major, String lastWork, String sign, String status,
+			Date date, String offer) {
+		super();
+		this.rid = rid;
+		this.uid = uid;
+		this.phone = phone;
+		this.name = name;
+		this.sex = sex;
+		this.education = education;
+		this.mail = mail;
+		this.job = job;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salaryExpectation = salaryExpectation;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.sign = sign;
+		this.status = status;
+		this.date = date;
+		this.offer = offer;
+	}
+	public String getOffer() {
+		return offer;
+	}
+	public void setOffer(String offer) {
+		this.offer = offer;
+	}
 	public Resume(int rid, int uid, String phone, String name, String sex, String education, String mail, String job,
 			String politicsStatus, String workExperience, String salaryExpectation, String interest, String school,
 			String age, String national, String nativePlace, String major, String lastWork, String sign, String status,

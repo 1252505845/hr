@@ -37,6 +37,7 @@ color:  #CF5202;
     <div class="a1">
 		      <div><a href="queryRes" >查看简历</a></div>
 		       <div><a href="tolookRec">查看招聘信息</a></div>
+		       <div><a href="lookint">查看面试状态</a></div>
 		       <div><a href="index">退出</a></div>
     	 </div>
 </body>

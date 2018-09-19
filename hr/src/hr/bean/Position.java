@@ -1,10 +1,29 @@
 package hr.bean;
 
+import java.util.Date;
+import java.util.List;
+
 public class Position {
    private int pid;
    private int deptId;
    private String posName;
+   private Date createTime;
+   private Dept dept;
+   private List<Employee>list;
    
+public Position(int pid, int deptId, String posName, Date createTime) {
+	super();
+	this.pid = pid;
+	this.deptId = deptId;
+	this.posName = posName;
+	this.createTime = createTime;
+}
+public Date getCreateTime() {
+	return createTime;
+}
+public void setCreateTime(Date createTime) {
+	this.createTime = createTime;
+}
 public int getPid() {
 	return pid;
 }

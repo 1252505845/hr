@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="hr.dao.DeptDao">
 <sql id="dept_column">
-  select dept_id,dept_name
+  select *
 </sql>
 <select id="queryALLDept" resultType="Dept">
    <include refid="dept_column"></include>  from dept 
@@ -11,5 +11,22 @@
  <select id="queryDeptById" resultType="Dept">
      <include refid="dept_column"></include>  from dept where dept_id=#{arg0}
  </select>
+ 	
+ 	<select id="queryByName"  resultType="Dept" >
+ 	    select * from dept where dept_name=#{deptName}
+ 	</select>
+ 	
+ 	
+ 	<insert id="addDept" parameterType="Dept">
+ 	insert into dept(dept_name,create_time) values (#{deptName},#{createTime})
+ 	</insert>
+ 	
+ 	<delete id="delDept"  parameterType="int">
+ 	delete from dept where dept_id=#{deptId}
+ 	</delete>
+ 	
+ 	
+	
+ 	
  	
 </mapper>

@@ -51,5 +51,17 @@ public class ResumeServiceImpl implements ResumeService {
 		return resumeDao.queryResumeByRid(rid);
 	}
 
+	@Override
+	public List<Resume> queryAccept(String status) {
+		// TODO Auto-generated method stub
+		return resumeDao.queryAccept(status);
+	}
+
+	@Override
+	public List<Resume> queryResumeByAccept(String accept) {
+		// TODO Auto-generated method stub
+		return resumeDao.queryResumeByAccept(accept);
+	}
+
 
 }

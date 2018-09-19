@@ -39,8 +39,8 @@ color:  #CF5202;
 <div><h3>欢迎  管理员    <span style="color: #EC7D16">${admin.phone}</span> </h3></div>
     <div class="a1">
 		      <div><a href="toAdminrec" >招聘管理</a></div>
-		       <div><a href="#">部门职位管理</a></div>
-		       <div><a href="#">员工管理</a></div>
+		       <div><a href="deptPost">部门职位管理</a></div>
+		       <div><a href="empManage">员工管理</a></div>
 		       <div><a href="#">培训管理</a></div>
 		       <div><a href="#">薪资管理</a></div>
 		       <div><a href="#">奖惩管理</a></div>

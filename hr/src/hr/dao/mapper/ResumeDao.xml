@@ -24,10 +24,17 @@ select * from resume
  
  	<update id="updateResume" parameterType="Resume">
  	update  resume set  name =#{name},sex =#{sex},age=#{age},national=#{national},school=#{school},education=#{education},major=#{major},native_place=#{nativePlace},phone=#{phone},mail=#{mail},job=#{job}
- 	,last_work=#{lastWork},salary_expectation=#{salaryExpectation},interest=#{interest},politics_status=#{politicsStatus},work_experience=#{workExperience},status=#{status},sign=#{sign},date=#{date} where  uid=#{uid}
+ 	,last_work=#{lastWork},salary_expectation=#{salaryExpectation},interest=#{interest},politics_status=#{politicsStatus},work_experience=#{workExperience},status=#{status},sign=#{sign},date=#{date},offer=#{offer},accept=#{accept} where  uid=#{uid}
  	
  	
  	</update>
+	
+	<select id="queryAccept" resultType="Resume">
+	  select * from resume  where  status=#{arg0}
+	</select>
+	<select id="queryResumeByAccept" resultType="Resume">
+	  select * from resume  where  accept=#{arg0}
+	</select>
 	
  <delete id="delResume" parameterType="int">
     delete from resume where uid=#{uid}

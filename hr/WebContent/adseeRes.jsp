@@ -50,7 +50,7 @@ $(function () {
 		    	date:$("#date").val()
 		    },
 		success:function(data){
-			if(date!=null){
+			if(data!=null){
 				alert(data);
 			}
 			

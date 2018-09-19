@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="hr.dao.UserDao">
-<sql id="user_column">
-  select uid,name,psw,sex,education,phone,mail,job,politics_status,work_experience,salary_expectation,interest
-</sql>
-<select id="queryUser" resultMap="UserMap">
-   <include refid="user_column"></include>  from user where phone=#{arg0} and psw=#{arg0}
+
+<select id="queryUser" resultType="User">
+  select *  from user where phone=#{arg0} and psw=#{arg0}
 </select>
-<resultMap type="User" id="UserMap">
-   <id property="uid" column="uid"/>
-   <result property="name" column="name"/>
-   <result property="psw" column="psw"/>
-   <result property="phone" column="phone"/>
-   <result property="sex" column="sex"/>
-   <result property="education" column="education"/>
-   <result property="mail" column="mail"/>
-   <result property="job" column="job"/>
-   <result property="politicsStatus" column="politics_status"/>
-   <result property="workExperience" column="work_experience"/>
-   <result property="politicsStatus" column="politics_status"/>
-   <result property="salaryExpectation" column="salary_expectation"/>
-   <result property="interest" column="interest"/>
-</resultMap>
+
  
  	<select id="queryUserByPhone" resultType="Integer">
 		select 1 from user where phone=#{arg0}	
@@ -30,7 +14,13 @@
 	<insert id="addUser" parameterType="User">
 	 insert into user (phone,psw) values (#{phone},#{psw})
 	</insert>
+	<select id="queryById" resultType="User">
+	  select   * from user where  uid=#{arg0}	
+	</select>
 	
- 
+	
+ <delete id="del" parameterType="int">
+    delete from user where uid=#{uid}
+ </delete>
 
 </mapper>

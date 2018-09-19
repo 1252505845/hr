@@ -13,9 +13,19 @@ public interface UserDao {
 	 * @return
 	 */
 	public Integer queryUserByPhone(String phone);
+	
+	public User queryById(int uid);
+	
 	/**
 	 * 增加用户
 	 */
 	
 	public void addUser(User user);
+	
+	
+	/**
+	 * 删除游客
+	 * 
+	 */
+	public void del(int uid);
 }

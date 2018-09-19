@@ -154,10 +154,12 @@ public class ResumeController {
      }
      
      @RequestMapping("/adseeRes")
-	public String adseeRes(int uid,Model model) {
-    	 if(uid!=0) {
-    		 Resume resume=resumeService.queryResume(uid);
+	public String adseeRes(int rid,Model model) {
+    	
+    	 if(rid!=0) {
+    		 Resume resume=resumeService.queryResumeByRid(rid);
     		 //点击查看按钮 进入游客简历界面，此时游客的简历应该变为已查看状态
+    		
         	 model.addAttribute("resume", resume);
         	 resume.setSign("已查看");
         	 resumeService.updateResume(resume);
@@ -169,8 +171,7 @@ public class ResumeController {
      @ResponseBody
      @RequestMapping("/addtime")
      public String addtime(String date,int rid) {
-    	 System.out.println(date);
-    	 System.out.println(rid);
+    	
     	 if(date==null||date==""||rid==0) {
     		
     		 return "输入时间有误或没找到该简历";
@@ -182,6 +183,121 @@ public class ResumeController {
            resume.setStatus("已通知面试");
            resumeService.updateResume(resume);
     	 return"已通知面试";
+     }
+     
+     @RequestMapping("/lookint")
+     public String lookint(HttpSession session,Model model) {
+    	 User user=(User) session.getAttribute("user");
+    	 if(user!=null) {
+    		 Resume resume=resumeService.queryResume(user.getUid());
+    		 model.addAttribute("resume", resume);
+    		 return"lookint";
+    	 }
+    	 
+    	 return"";
+     }
+     @ResponseBody
+     @RequestMapping("/accpet")
+     public String accpet(Integer uid) {
+    	 
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setStatus("接受面试");
+    	 resumeService.updateResume(resume);
+		return "已接收面试";	 
+     }
+     @ResponseBody
+     @RequestMapping("/reject")
+     public String reject(Integer uid) {
+    	 
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setStatus("拒绝面试");
+    	 resumeService.updateResume(resume);
+		return "已拒绝面试";	 
+     }
+     /**
+      * 管理员处理面试进行录用
+      * @return
+      */
+     @RequestMapping("/adinterv")
+     public String adinterv(Model model) {
+    	 List<Resume>list=resumeService.queryAccept("接受面试");
+    
+    	 model.addAttribute("resumeList", list);
+    	 
+    	 return"adinterv";
+     }
+     /**
+      * 管理员开始面试
+      */
+     @RequestMapping("/adinter")
+     public String adinter(int rid,Model model) {
+    	 if(rid!=0) {
+    		 Resume resume=resumeService.queryResumeByRid(rid);
+    		 
+    		 model.addAttribute("resume", resume);
+        	 return"inter";
+    	 }
+    	 return"";
+    	
+     }
+     @ResponseBody
+     @RequestMapping("/hire")
+     public String hire(Integer uid ) {
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setStatus("已面试");
+    	 resume.setOffer("面试成功");
+    	 resumeService.updateResume(resume);
+		return "面试成功";	
+    
+     }
+     @ResponseBody
+     @RequestMapping("/nohire")
+     public String nohire(Integer uid ) {
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setStatus("已面试");
+    	 resume.setOffer("面试失败");
+    	 resumeService.updateResume(resume);
+		return "面试失败";	
+    
+     }
+     /**
+      * 游客接受录用
+      * @param uid
+      * @return
+      */
+     @ResponseBody
+     @RequestMapping("/accpet2")
+     public String accpet2(Integer uid) {
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setAccept("接受录用");
+    	 resumeService.updateResume(resume);
+		return "已接收录用";	 
+     }
+     @ResponseBody
+     @RequestMapping("/reject2")
+     public String reject2(Integer uid) {
+    	 if(uid==null) {
+    		 return"找不到该用户";
+    	 }
+    	 Resume resume=resumeService.queryResume(uid);
+    	 resume.setAccept("拒绝录用");
+    	 resumeService.updateResume(resume);
+		return "已拒绝录用";	 
      }
      
 }

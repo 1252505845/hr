@@ -33,6 +33,14 @@ public interface ResumeDao {
 	public void delResume(int uid);
 
 	/**
-	 * 管理员添加面试时间，
+	 * 查找所有接受面试的简历
 	 */
+	public List<Resume> queryAccept(String status);
+	/**
+	 * 查找所有游客已经接受录用的简历
+	 */
+	public  List<Resume>  queryResumeByAccept(String accept);
+	
+
+	
 }

@@ -24,5 +24,6 @@ public interface ResumeService {
 	public void delResume(int uid);
 	public Resume queryResumeByRid(int rid);
 
-	
+	public List<Resume> queryAccept(String status);
+	public  List<Resume>  queryResumeByAccept(String accept);
 }

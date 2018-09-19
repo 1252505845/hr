@@ -5,9 +5,38 @@
 <select id="queryPositionbyId" resultType="Position">
   select *  from  position where dept_id=#{arg0}
 </select>
+
+
+
 <select id="queryPos"  resultType="Position">
 select *  from  position where pid=#{arg0}
 </select>
  
+ 	<select id="queryPositionbyName" resultType="Position" >
+ 	select * from  position  where pos_name=#{arg0}
+ 	</select>
+ 	
+ 	<select id="queryPosbyName" resultType="Position">
+ 	   select * from position  where   dept_id=#{arg0} and    pos_name=#{arg1}
+     
+ 	</select>
+ 	
+ 	
+ 	<insert id="addPos" parameterType="Position">
+ 	insert into  position  (dept_id,pos_name,create_time) values (#{deptId},#{posName},#{createTime})
+ 	</insert>
+ 	<delete id="delPosInDept" parameterType="int">
+ 	  delete from position where dept_id=#{deptId}
+ 	</delete>
+ 	
+ 	<select id="querybypid" resultType="Position">
+ 	select * from  position  where pid=#{pid}
+ 	</select>
+ 	
+ 	<delete id="delbypid" parameterType="int">
+ 	  delete from position where pid=#{pid}
+ 	</delete>
+ 	
+ 	
  	
 </mapper>

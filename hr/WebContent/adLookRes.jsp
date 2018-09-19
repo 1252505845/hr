@@ -41,19 +41,20 @@ line-height: 23px;
            <div>操作</div> 
     </div> 
        
-     <form action="adseeRes" method="post">
+     
            <c:forEach items="${resumeList}" var="resume">
-        
-	        <div class="a">
-	        	<div><input type="text" name="uid" value="${resume.uid}" readonly="readonly"/></div>
-	        	<div><input type="text" name="name" value="${resume.name}" readonly="readonly"/></div>
-	        	<div><input type="text" name="sign"  value="${resume.sign}" readonly="readonly"/></div>
-	        	<div><input type="text" name="status"  value="${resume.status}" readonly="readonly"/></div>
-	        	<div><input type="submit" value="查看" style="height: 30px;"/></div>
-	        </div>
+	        <form action="adseeRes" method="post">
+		        <div class="a">
+		        	<div><input type="text" name="rid" value="${resume.rid}" readonly="readonly"/></div>
+		        	<div><input type="text" name="name" value="${resume.name}" readonly="readonly"/></div>
+		        	<div><input type="text" name="sign"  value="${resume.sign}" readonly="readonly"/></div>
+		        	<div><input type="text" name="status"  value="${resume.status}" readonly="readonly"/></div>
+		        	<div><input type="submit" value="查看" style="height: 30px;"/></div>
+		        </div>
+		        </form>
         
      </c:forEach>
-  </form>
+  
    
 
 

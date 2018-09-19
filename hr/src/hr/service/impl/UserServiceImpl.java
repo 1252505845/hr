@@ -38,4 +38,16 @@ public class UserServiceImpl implements UserService {
 	
 	}
 
+	@Override
+	public void del(int uid) {
+		// TODO Auto-generated method stub
+		userDao.del(uid);
+	}
+
+	@Override
+	public User queryById(int uid) {
+		// TODO Auto-generated method stub
+		return userDao.queryById(uid);
+	}
+
 }

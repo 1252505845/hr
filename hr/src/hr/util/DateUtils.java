@@ -20,7 +20,7 @@ public class DateUtils {
 	}
 	
 	public  static Date getDate(String date) {
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd  ");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			//return df.parse(date.toString());
 			return  (Date)df.parseObject(date);

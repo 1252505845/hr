@@ -38,7 +38,7 @@ color:  #CF5202;
    <div><a href="toAddRec">发布招聘信息</a></div>
    <div><a href="adlookRec">查看已发布的招聘信息</a></div>
    <div><a href="adLookRes">查看简历</a></div>
-   <div><a href="#"></a></div>
+   <div><a href="adinterv">面试处理</a></div>
    <div><a href="toAdmin">退出</a></div>
   </div> 
 </body>
