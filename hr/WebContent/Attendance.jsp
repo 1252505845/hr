@@ -64,7 +64,7 @@ $(function () {
 <div class="b">
     <div><a href="#" id="onCard">上班打卡</a></div>
     <div><a href="#" id="offCard">下班打卡</a></div>
-    <div><a href="#">我的考勤信息</a></div>
+    <div><a href="lookmyAtt">我的考勤信息</a></div>
 </div>
 
 </body>

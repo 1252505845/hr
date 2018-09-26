@@ -18,7 +18,7 @@ public interface AttendanceService {
 	 * 比较上班打卡的时间与规定的时间
 	 * @return
 	 */
-	
+	    public List<Attendance> queryAllAttbyId(int empId);
 	public  void onMinute(Date dt,int empId);
 	
 	public  String offMinute(Attendance attendance);

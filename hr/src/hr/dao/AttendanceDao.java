@@ -32,6 +32,8 @@ public interface AttendanceDao {
     
     
     public void updateAtt(Attendance attendance);
+    public List<Attendance> queryAllAttbyId(int empId);
+    
     //管理员查看所有考勤
     
     public List<Attendance> queryAllAtt();

@@ -315,6 +315,12 @@ public class AttendanceServiceImpl implements AttendanceService {
 		return repDao.query(empId, conn);
 	}
 
+	@Override
+	public List<Attendance> queryAllAttbyId(int empId) {
+		// TODO Auto-generated method stub
+		return attendanceDao.queryAllAttbyId(empId);
+	}
+
 	
 
 

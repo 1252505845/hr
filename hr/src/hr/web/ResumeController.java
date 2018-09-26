@@ -177,7 +177,7 @@ public class ResumeController {
     		 return "输入时间有误或没找到该简历";
     	 }
     	 //修改简历表 date status
-            Date date2=DateUtils.getDate(date);
+            Date date2=DateUtils.getDate123(date);
            Resume resume= resumeService.queryResumeByRid(rid);
            resume.setDate(date2);
            resume.setStatus("已通知面试");

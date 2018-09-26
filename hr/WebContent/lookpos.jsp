@@ -22,7 +22,7 @@ margin: auto;
 <div class="msg"><c:if test="${not empty msg}">
    <c:out value="${msg}"/>
 </c:if></div>
-<table>
+<table border="1"  cellspacing="0">
     <tr>
          <td>员工的名字</td>
          <td>员工的部门</td>

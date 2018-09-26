@@ -229,6 +229,22 @@ public class empController {
 		return "Attendance";
 		  
 	  }
+	  @RequestMapping("/lookmyAtt")
+	  public String lookmyAtt(HttpSession session,Model model) {
+		  Employee emp=(Employee) session.getAttribute("emp");
+		  if(emp==null) {
+			  model.addAttribute("msg", "没找到员工");
+			  return"lookmyAtt";
+		  }
+		  List<Attendance>list=attendanceService.queryAllAttbyId(emp.getEmpId());
+		  if(list.size()==0) {
+			  model.addAttribute("msg", "没有打卡记录");
+			  return"lookmyAtt";
+		  }
+		  model.addAttribute("attList", list);
+		  return"lookmyAtt";
+	  }
+	  
 	  /**
 	   * 打卡
 	   * @return

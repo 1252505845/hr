@@ -80,6 +80,19 @@ public class DateUtils {
 		return null;
 		
 	}
+	public  static Date getDate123(String date) {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			//return df.parse(date.toString());
+			return  (Date)df.parseObject(date);
+			//Date start = (Date)sdf.parseObject(startDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 	
 	public  static Date getDate2(String date) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");

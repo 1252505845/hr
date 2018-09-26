@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper  namespace="hr.dao.AttendanceDao">
+<mapper  namespace="hr.dao.AttendanceDao" >
 
-
+<select id="queryAllAttbyId" resultType="Attendance">
+ select a.*,e.emp_name from  attendance  a ,emp e   where a.emp_id=e.emp_id  and  a.emp_id=#{arg0}
+</select>
 <select id="getCurrentDates" resultType="Date">
  SELECT DATE_FORMAT(NOW(),'%Y-%m-%d')
 
