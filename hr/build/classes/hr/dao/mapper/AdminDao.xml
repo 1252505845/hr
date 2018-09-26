@@ -3,7 +3,7 @@
 <mapper  namespace="hr.dao.AdminDao">
 
 <select id="queryAdmin" resultType="Admin">
-   select *  from admin where phone=#{arg0} and psw=#{arg0}
+   select *  from admin where phone=#{arg0} and psw=#{arg1}
 </select>
 
  

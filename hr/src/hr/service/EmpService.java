@@ -19,4 +19,8 @@ public interface EmpService {
 	public List<Employee> queryByDeptIdPid(int deptId,int pid);
 	public List<Employee>  querybypid(int pid);
 	public void delEmpbyphone(String phone);
+	public  List<Employee>  queryAllEmp();
+	public Employee queryEmpbyid222(int empId);
+	
+	public List<Employee>  querybypid222(int pid);
 }

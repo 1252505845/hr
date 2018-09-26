@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="hr.dao.PayrollDao">
+
+
+<insert id="addPayRoll" parameterType="Payroll">
+
+insert into payroll (emp_id,salary,performance,overtime,rep,social,realitysal,time)
+   values (#{empId},#{salary},#{performance},#{overtime},#{rep},#{social},#{realitysal},#{time})
+</insert>
+ 
+ <select id="queryPayroll" resultType="Payroll">
+ select * from payroll  where emp_id=#{arg0} and time=#{arg1}
+ </select>
+ 
+ <select id="queryAll" resultType="Payroll">
+ select p.*,emp_name from payroll p,emp e   where  p.emp_id=e.emp_id
+ </select>
+ 
+ 	
+</mapper>

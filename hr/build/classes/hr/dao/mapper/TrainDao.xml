@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="hr.dao.TrainDao">
+
+
+ <insert id="addTrain" parameterType="Train">
+ insert into train (train_name,time,dept_id)  values(#{trainName},#{time},#{deptId})
+ </insert>
+ 	<select id="queryTrain"  resultType="Train">
+ 	select * from train where train_name=#{arg0} and dept_id=#{arg1}
+ 	</select>
+ 	
+ 	<select id="queryAllTrain"  resultType="Train">
+     select t.*,d.dept_name from train t ,dept d where  t.dept_id=d.dept_id
+ 	</select>
+ 	
+ 	<update id="update" parameterType="Train">
+ 	update train  set  train_name=#{trainName}, time=#{time},dept_id=#{deptId}
+ 	</update>
+ 	
+ 	<delete id="delTrain" parameterType="int" >
+ 	 delete from train where  train_id=#{trainId} 
+ 	</delete>
+ 	
+ 	<select id="queryByDeptId" resultType="Train">
+ 	select * from train where dept_id=#{deptId}
+ 	</select>
+ 	
+ 	
+</mapper>

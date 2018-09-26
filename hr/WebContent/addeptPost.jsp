@@ -298,7 +298,7 @@ $(function (){
               </div >
               <!-- 查看某部门的职位 和员工-->
               <div class="b222" id="b222">
-                 <form action="watchPosEmp" method="post">
+                 <form action="addTrain" method="post">
                    <div>请选择要查看的部门</div>
 	                 <select id="dept" name="deptId">
 			    					<option value="0">请选择部门</option>

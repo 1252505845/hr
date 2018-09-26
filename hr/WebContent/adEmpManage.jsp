@@ -38,7 +38,7 @@ color:  #CF5202;
    <div><a href="addEmp">增加员工</a></div>
    <div><a href="updateEmp">员工换岗</a></div>
    <div><a href="delempl">删除员工</a></div>
-   <div><a href="#"></a></div>
+   <div><a href="adLookAllEmp">查看员工</a></div>
    <div><a href="toAdmin">退出</a></div>
   </div> 
 </body>

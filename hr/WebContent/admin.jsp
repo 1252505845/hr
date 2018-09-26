@@ -41,10 +41,12 @@ color:  #CF5202;
 		      <div><a href="toAdminrec" >招聘管理</a></div>
 		       <div><a href="deptPost">部门职位管理</a></div>
 		       <div><a href="empManage">员工管理</a></div>
-		       <div><a href="#">培训管理</a></div>
-		       <div><a href="#">薪资管理</a></div>
-		       <div><a href="#">奖惩管理</a></div>
-		       <div><a href="#">考勤管理</a></div>
+		       <div><a href="trainManage">培训管理</a></div>
+		       <div><a href="adlookPay">发布工资</a></div>
+		       <div><a href="adlookAllPay">查看工资</a></div>
+		       <div><a href="lookAllRev">查看复议</a></div>
+		       <div><a href="adlookRep">奖惩管理</a></div>
+		       <div><a href="adlookAtt">考勤管理</a></div>
 		       <div><a href="index">退出</a></div>
     	 </div>
 </body>

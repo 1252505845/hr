@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="hr.dao.AttendanceDao">
+
+
+<select id="getCurrentDates" resultType="Date">
+ SELECT DATE_FORMAT(NOW(),'%Y-%m-%d')
+
+</select>
+<select id="getNextfirst" resultType="Date">
+select DATE_FORMAT(date_add(curdate()-day(curdate())+1,interval 1 month),'%Y-%m-%d') 
+</select>
+<select id="getfirstDay" resultType="Date">
+select date_add(date_add(last_day(now()),interval 1 day),interval -1 month)
+</select>
+<select id="queryWorkCount" resultType="int">
+SELECT   count(*)  FROM  attendance
+WHERE  
+date_format(today,'%Y-%m-%d')
+
+ LIKE CONCAT('%',#{arg1},'%') 
+and  work=#{arg0}  and emp_id=#{arg2}
+</select>
+<select id="queryStatusCount" resultType="int">
+SELECT   count(*)  FROM  attendance
+WHERE  
+date_format(today,'%Y-%m-%d')
+
+ LIKE CONCAT('%',#{arg1},'%') 
+and  status=#{arg0}  and emp_id=#{arg2}
+</select>
+<select id="queryStatus222Count" resultType="int">
+SELECT   count(*)  FROM  attendance
+WHERE  
+date_format(today,'%Y-%m-%d')
+
+ LIKE CONCAT('%',#{arg1},'%') 
+and  status222=#{arg0}  and emp_id=#{arg2}
+</select>
+<select id="queryStatus333Count"  resultType="int">
+SELECT   count(*)  FROM  attendance
+WHERE  
+date_format(today,'%Y-%m-%d')
+
+ LIKE CONCAT('%',#{arg2},'%') 
+and status=#{arg0} and status222=#{arg1}  and emp_id=#{arg3}
+</select>
+ 
+ <insert id="addAttendance" parameterType="Attendance">
+ 	insert into attendance (today,emp_id,on_time) values (#{today},#{empId},#{onTime})
+ </insert>
+ 
+ <select id="queryAttendance" resultType="Attendance">
+ select * from  attendance  where emp_id=#{empId} and today=#{today}
+ </select>
+ <update id="updateAtt"  parameterType="Attendance">
+ update  attendance  set off_time=#{offTime},status=#{status},status222=#{status222},work=#{work}
+ 
+ </update>
+ 
+ <select id="queryAllAtt" resultType="Attendance">
+ select a.*,e.emp_name from  attendance  a ,emp e   where a.emp_id=e.emp_id
+ </select>
+ 
+ 
+</mapper>

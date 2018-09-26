@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="hr.dao.RepDao">
+
+<insert id="addRep" parameterType="Rep">
+  insert into rep (emp_id,money,rep_time,conn)  values
+  (#{empId},#{money},#{repTime},#{conn})
+</insert>
+
+ <select id="queryAllRep" resultType="Rep">
+ select rep.*,emp_name from rep,emp where rep.emp_id=emp.emp_id
+ </select>
+ 	
+ 	<select id="queryRepById"  resultType="Rep">
+ 	select  rep.*,emp_name from rep,emp where rep.emp_id=emp.emp_id
+ 	and  rep.emp_id=#{empId}
+ 	
+ 	</select>
+ 	
+ 	<select id="query" resultType="Rep">
+ 	select * from rep where emp_id=#{arg0} and conn=#{arg1}
+ 	</select>
+ 	
+</mapper>

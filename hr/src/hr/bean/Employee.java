@@ -25,9 +25,53 @@ public class Employee {
 	  
 	  private  Dept dept;    //一对一
 	  private Position position;  //一对一
-	  
+	  private String deptName;
+	  private String posName;
 	  
 	
+	public Employee(int empId, String phone, String telphone, String psw, String empName, int deptId, String sex,
+			int pid, String education, String mail, String politicsStatus, String workExperience, int salary,
+			String interest, String school, int age, String national, String nativePlace, String major, String lastWork,
+			String status, Dept dept, Position position, String deptName, String posName) {
+		super();
+		this.empId = empId;
+		this.phone = phone;
+		this.telphone = telphone;
+		this.psw = psw;
+		this.empName = empName;
+		this.deptId = deptId;
+		this.sex = sex;
+		this.pid = pid;
+		this.education = education;
+		this.mail = mail;
+		this.politicsStatus = politicsStatus;
+		this.workExperience = workExperience;
+		this.salary = salary;
+		this.interest = interest;
+		this.school = school;
+		this.age = age;
+		this.national = national;
+		this.nativePlace = nativePlace;
+		this.major = major;
+		this.lastWork = lastWork;
+		this.status = status;
+		this.dept = dept;
+		this.position = position;
+		this.deptName = deptName;
+		this.posName = posName;
+	}
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+	public String getPosName() {
+		return posName;
+	}
+	public void setPosName(String posName) {
+		this.posName = posName;
+	}
 	public Dept getDept() {
 		return dept;
 	}

@@ -151,6 +151,7 @@ public class DeptPostController {
 		return JSONObject.toJSONString(list);
 		
 	}
+	
 	@RequestMapping("/lookpos")
 	public String  lookpos(int deptId,int pid,Model model) {
 		if(deptId==0||pid==0) {
@@ -159,12 +160,19 @@ public class DeptPostController {
 		}
 		Dept dept=deptService.queryDeptById(deptId);
 		Position position=positionService.querybypid(pid);
+		if(dept==null||position==null) {
+			model.addAttribute("msg", "部门或职位出错");
+			return "lookpos";
+		}
 		List<Employee> list=empService.queryByDeptIdPid(deptId, pid);
-		//需要连表查询
+		//查询,查该部门下的某个职位的所有员工，部门名称和职位名称
+		if(list.size()==0) {
+			model.addAttribute("msg", "该职位没有员工");
+			return "lookpos";
+		}
 		
-		return null;
-		
-		
+		model.addAttribute("empList", list);
+		return "lookpos";
 	}
 	
 	

@@ -74,6 +74,24 @@ public class EmpServiceImpl implements EmpService {
 		empDao.delEmpbyphone(phone);
 	}
 
+	@Override
+	public List<Employee> queryAllEmp() {
+		// TODO Auto-generated method stub
+		return empDao.queryAllEmp();
+	}
+
+	@Override
+	public Employee queryEmpbyid222(int empId) {
+		// TODO Auto-generated method stub
+		return empDao.queryEmpbyid222(empId);
+	}
+
+	@Override
+	public List<Employee> querybypid222(int pid) {
+		// TODO Auto-generated method stub
+		return empDao.querybypid222(pid);
+	}
+
 	
 	
 	

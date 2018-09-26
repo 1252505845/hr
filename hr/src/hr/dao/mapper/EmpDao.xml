@@ -6,6 +6,13 @@
    select *  from emp where phone=#{arg0} and psw=#{arg0}
 </select>
 
+<select id="queryEmpbyid" resultType="Employee">
+ select *  from emp where emp_id=#{empId}
+</select>
+ <select id="queryEmpbyid222" resultType="Employee">
+ select e.*  ,d.dept_name,p.pos_name from emp e,dept d,position p
+where e.pid=p.pid  and e.dept_id =d.dept_id and emp_id=#{arg0}
+ </select>
  
  	<insert id="addEmp" parameterType="Employee">
  	  insert into emp (emp_name,sex,age,national,school,education,major,native_place,mail,last_work,salary,interest,politics_status,work_experience
@@ -28,15 +35,26 @@
  	</select>
  	
 	<select id="queryByDeptIdPid" resultType="Employee" >
-	select * from emp    where dept_id= #{deptId} and  pid=#{pid}
+	select e.*,p.pos_name,d.dept_name from emp e,position p,dept d
+where e.dept_id=d.dept_id and p.pid=e.pid and e.dept_id=#{arg0} and e.pid=#{arg1}
+	
 	</select>
  <select id="querybypid" resultType="Employee">
  select * from emp    where   pid=#{pid}
  </select>
+ 
+ <select id="querybypid222" resultType="Employee">
+select e.*,d.dept_name,p.pos_name from emp e,dept d,position p    where  
+ e.dept_id=d.dept_id and e.pid=p.pid
+ and e.pid=#{arg0}
+ </select>
 <delete id="delEmpbyphone" parameterType="String">
   delete from emp where phone=#{phone}
 </delete>
-
-
+  
+<select id="queryAllEmp" resultType="Employee">
+   select e.*,p.pos_name,d.dept_name from emp e,position p,dept d
+where e.dept_id=d.dept_id and p.pid=e.pid
+</select>
 
 </mapper>
